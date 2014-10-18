@@ -1,0 +1,15 @@
+body {
+ margin-top: 10px;   
+}
+
+#logo {
+ margin-bottom:50px;   
+}
+
+#code-message .pager li > a.active {
+        text-decoration: none;
+        background-color: #AFE5B6;
+        color: #000000;
+}
+
+

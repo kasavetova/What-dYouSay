@@ -13,65 +13,62 @@
     <body>
         
     <div class="container">
-        <h1 class="text-center">What'd You Say?</h1>
-        
-        <div id="home">
-            <div id="logo" class="row text-center">                
-              
-            </div>
+    <h1 class="text-center">What'd You Say?</h1>
 
+    <div id="home">
+        <div id="logo" class="row text-center">
+            <img src="img/what.gif" />
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <div class="form-group">
+                    <label class="control-label" for="message"><h3>Type the sentence you would like to GIF-code:</h3></label>
+                    <input type="text" class="form-control" id="message" placeholder="e.g. You look nice today.">
+                </div>
+            </div>
+        </div>
+
+        <div class="row text-center">
+            <button id="go-btn" class="btn btn-lg btn-success" type="button">Go!</button>
+        </div>
+
+        <div class="row pull-right">
+            <ul class="pager">
+                <li><a href="#">I would like to guess instead →</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="code-message" class="text-center collapse">
+        <div id="words-collection" class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <ul class="pager"></ul>
+            </div>
+            <div class="col-sm-offset-2">
+                <button id="preview-btn" class="btn btn-success btn-lg">Preview  →</button>
+            </div>
+        </div>
+
+        <div id="gifs">
             <div class="row">
-                <div class="col-sm-6 col-sm-offset-3">
-                     <div class="form-group">
-                         <label class="control-label" for="message"><h3>Type the sentence you would like to GIF-code:</h3></label>
-                         <input type="text" class="form-control" id="message" placeholder="e.g. You look nice today.">
-                     </div>
-                </div>
-            </div>
 
-            <div class="row text-center">
-                <button id="go-btn" class="btn btn-lg btn-success" type="button">Go!</button>
             </div>
+        </div>
 
-            <div class="row pull-right">
-                <ul class="pager">
-                    <li><a href="#">I would like to guess instead →</a></li>
-                </ul>                
-            </div>
+    </div>
+
+    <div id="preview" class="row text-center collapse">
+        <h3>Here is a preview of your GIF-coded message:</h3>
+
+        <div id="gifs-row" class="row"></div>
+
+        <div class="row">
+            <div class="pull-left">Back</div>
+            <div class="pull-right">Submit</div>
         </div>
-        
-        <div id="code-message" class="text-center collapse">
-            <div id="words-collection" class="row">
-                <div class="col-sm-8 col-sm-offset-2">
-                    <ul class="pager">                        
-                    </ul>
-                </div>
-                <div class="col-sm-offset-2">
-                    <button id="preview-btn" class="btn btn-success btn-lg">Preview  →</button>
-                </div>
-            </div>
-            
-            <div id="gifs" >
-                <div class="row">
-                    
-                </div>
-            </div>
-            
-        </div>
-        
-        <div id="preview" class="row text-center collapse">
-            <h3>Here is a preview of your GIF-coded message:</h3>
-            
-            <div id="gifs-row" class="row"></div>
-            
-            <div class="row">
-                <div class="pull-left">Back</div>
-                <div class="pull-right">Submit</div>
-            </div>
-        </div>
-    </div>   
-        
-        
+    </div>
+</div>    
         <script src="https://code.jquery.com/jquery-2.1.1.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <script src="main.js"></script>

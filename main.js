@@ -1,4 +1,5 @@
- $('#go-btn').click(function(e) {
+
+$('#go-btn').click(function(e) {
         var message = $('#message').val();
         if(message.length>0) {                    
             var wordArray = message.split(' ');
@@ -22,7 +23,6 @@
     });
 
    var enableWords = function () {
-       console.log('test');
        $('#words-collection li').click(function(e) {
         e.preventDefault();
         var wordText = $(this).html();
@@ -52,12 +52,15 @@ var renderGifs = function() {
     $('.source-button').click(function(e) {
         e.preventDefault();
         var selectedWordInd = $('.word.active').parent().index();
+        var imgID = $(this).parent().attr('id');
+        
         if($(this).html()==='Using') {
 
             $(this).parent().removeClass('overlay');
             $(this).html('Use');
             $(this).css('visibility', 'hidden');
             $(this).siblings('img').removeClass(selectedWordInd + '-used');
+             $('#gif-' + imgID).html('');
 
         } else {   
 
@@ -68,6 +71,8 @@ var renderGifs = function() {
             $(this).html('Using');
             $(this).css('visibility', 'visible');
             $(this).siblings('img').addClass(selectedWordInd + '-used');
+             $('#gif-' + id).append($(this).parent());
+           
         }
     });
 }
@@ -87,7 +92,7 @@ var getGifs = function(word) {
  		}
  		 for (var i=0; i<16; i++) {                
                    
-             $('#gifs .row').append('<div class="col-sm-3"><div class="img-wrapper"><img class="col-sm-12 gif-img" src="' + 
+             $('#gifs .row').append('<div class="col-sm-3"><div class="img-wrapper"><img id="' + i + '" class="col-sm-12 gif-img" src="' + 
                                     linksArray[i]+  '"/>' +
                                    '<div class="source-button btn btn-primary btn-sm">Use</div></div></div>');               
             }

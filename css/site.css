@@ -12,4 +12,25 @@ body {
         color: #000000;
 }
 
+#message-words {
+ margin-bottom:15px;   
+}
 
+.source-button {
+    visibility: hidden;
+    position: absolute;
+    bottom: 0;
+    right: 30px;
+    z-index: 1000;
+    font-weight: bold;
+}
+
+.gif-img:hover + .source-button, .source-button:hover{     
+    visibility: visible !important;
+}
+
+.overlay {
+    z-index:100;
+    background-color:grey;
+    opacity:0.5;
+}

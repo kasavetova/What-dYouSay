@@ -11,7 +11,7 @@
 
                  $('#preview #gifs-row').append("<div id='gif-" + i + "' class='col-sm-3'></div>");
             }
-            eval(" $('#words-collection li').click(function(e) { e.preventDefault(); if(!$(this).find('a').hasClass('active')) { $('.word').removeClass('active');$(this).find('a').toggleClass('active');} });");
+           enableWords();
 
             $('#home').hide();
             $('#code-message').show();                  
@@ -21,17 +21,26 @@
         }
     });
 
-    $('#words-collection li').click(function(e) {
+   var enableWords = function () {
+       console.log('test');
+       $('#words-collection li').click(function(e) {
         e.preventDefault();
-        if(!$(this).find('a').hasClass('active')) {    
+        var wordText = $(this).html();
+        $('#gifs .row').html('');
+        getGifs(wordText);
+        if(!$(this).find('a').hasClass('active')) {
+           
             $('.word').removeClass('active');
             $(this).find('a').toggleClass('active');
-        }          
-
-        var wordText = $(this).html();
+            
+                       
+        }       
+             
+        
         //hide other rows
         //$('.gifs').append()
     });
+   }
 
     //this script to always be evaluated when adding new pictures. 
     //resize()
@@ -68,15 +77,15 @@ var renderGifs = function() {
 
     });
 
-var getGifs = function(word) {
-  var xhr = $.get('http://api.giphy.com/v1/gifs/search?q=' + word + '&api_key=dc6zaTOxFJmzC&limit=50');
+var getGifs = function(word) {    
+  var xhr = $.get('http://api.giphy.com/v1/gifs/search?q=' + word + '&api_key=dc6zaTOxFJmzC&limit=16');
 	xhr.done(function(data) { 
-		var linksArray = new Array(50);
-		for(var i = 0; i<50; i++){
+		var linksArray = new Array(16);
+		for(var i = 0; i<16; i++){
  			var a= data.data[i].images.fixed_height.url;
  			linksArray[i] = a; 			
  		}
- 		 for (var i=0; i<50; i++) {                
+ 		 for (var i=0; i<16; i++) {                
                    
              $('#gifs .row').append('<div class="col-sm-3"><div class="img-wrapper"><img class="col-sm-12 gif-img" src="' + 
                                     linksArray[i]+  '"/>' +

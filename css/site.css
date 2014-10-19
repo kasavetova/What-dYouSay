@@ -6,13 +6,13 @@ body {
  margin-bottom:50px;   
 }
 
-#code-message .pager li > a.active {
+#words-collection .pager li > a.active {
         text-decoration: none;
         background-color: #AFE5B6;
         color: #000000;
 }
 
-#message-words {
+#words-collection {
  margin-bottom:15px;   
 }
 
@@ -33,4 +33,9 @@ body {
     z-index:100;
     background-color:grey;
     opacity:0.5;
+}
+
+#gifs .row {
+    min-height: 170px;
+    max-height: 200px;
 }

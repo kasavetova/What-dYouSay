@@ -17,7 +17,7 @@
         
         <div id="home">
             <div id="logo" class="row text-center">                
-                <img src="img/what.gif" />
+              
             </div>
 
             <div class="row">
@@ -36,8 +36,7 @@
             <div class="row pull-right">
                 <ul class="pager">
                     <li><a href="#">I would like to guess instead →</a></li>
-                </ul>
-                
+                </ul>                
             </div>
         </div>
         
@@ -54,30 +53,7 @@
             
             <div id="gifs" >
                 <div class="row">
-                    <div class="col-sm-3">
-                        <div class="img-wrapper">
-                            <img class="col-sm-12 gif-img" src="img/what.gif"/>
-                            <div class="source-button btn btn-primary btn-sm">Use</div>
-                        </div>                        
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="img-wrapper">
-                            <img class="col-sm-12 gif-img" src="img/whatdidusay.gif"/>
-                            <div class="source-button btn btn-primary btn-sm">Use</div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="img-wrapper">
-                            <img class="col-sm-12 gif-img" src="img/whatdidusay.gif"/>
-                            <div class="source-button btn btn-primary btn-sm">Use</div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="img-wrapper">
-                            <img class="col-sm-12 gif-img" src="img/what.gif"/>
-                            <div class="source-button btn btn-primary btn-sm">Use</div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
             
@@ -101,72 +77,6 @@
         
         <script src="https://code.jquery.com/jquery-2.1.1.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-        
-        <script type="text/javascript">
-            $('#go-btn').click(function(e) {
-                var message = $('#message').val();
-                if(message.length>0) {                    
-                    var wordArray = message.split(' ');
-                    for(var i=0; i<wordArray.length; i++) {
-                        if (i===0) { 
-                            $('#words-collection ul').append('<li><a href="#" class="word active">' + wordArray[i] + '</a></li> ');
-                        } else {
-                            $('#words-collection ul').append('<li><a href="#" class="word">' + wordArray[i] + '</a></li> ');
-                        }
-                        
-                         $('#preview #gifs-row').append("<div id='gif-" + i + "' class='col-sm-3'></div>");
-                    }
-                    eval(" $('#words-collection li').click(function(e) { e.preventDefault(); if(!$(this).find('a').hasClass('active')) { $('.word').removeClass('active');$(this).find('a').toggleClass('active');} });");
-                        
-                    $('#home').hide();
-                    $('#code-message').show();                                       
-                }
-            });
-            
-            $('#words-collection li').click(function(e) {
-                e.preventDefault();
-                if(!$(this).find('a').hasClass('active')) {    
-                    $('.word').removeClass('active');
-                    $(this).find('a').toggleClass('active');
-                }          
-                
-                var wordText = $(this).html();
-                //hide other rows
-                //$('.gifs').append()
-            });
-            
-            //this script to always be evaluated when adding new pictures. 
-            //resize()
-            
-            $('.gif-img').css('min-height', '170px').css('max-height', '200px');
-            $('.gif-img').height($('.gif-img').closest('.row').height());
-            
-            $('.source-button').click(function(e) {
-                e.preventDefault();
-                var selectedWordInd = $('.word.active').parent().index();
-                if($(this).html()==='Using') {
-                    
-                    $(this).parent().removeClass('overlay');
-                    $(this).html('Use');
-                    $(this).css('visibility', 'hidden');
-                    $(this).siblings('img').removeClass(selectedWordInd + '-used');
-                    
-                } else {   
-                    
-                    $('.img-wrapper').removeClass('overlay');
-                    $('.source-button').html('Use');
-                    $('.source-button').css('visibility', 'hidden');
-                    $(this).parent().addClass('overlay');
-                    $(this).html('Using');
-                    $(this).css('visibility', 'visible');
-                    $(this).siblings('img').addClass(selectedWordInd + '-used');
-                }
-            });
-            
-            $('#preview-btn').click(function(e) {
-                e.preventDefault();
-
-            });
-        </script>
+        <script src="main.js"></script>
     </body>
 </html>
